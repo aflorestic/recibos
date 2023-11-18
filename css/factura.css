@@ -1,0 +1,16 @@
+div#general{
+    margin: auto;
+    margin-top: 50px;
+    width: 910px;
+    height: 800px;
+    background-color: white;
+}
+
+
+table{
+    float: right;
+    border: 1px solid black;
+    margin:0 auto;
+
+   
+}

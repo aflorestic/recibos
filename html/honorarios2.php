@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="flex uppercase">
+      <div class="flex flex-col" >
+        <p class="font-bold text-xl" >FLORES TICONA ALEX JAVIER</p>
+        <p class="text-sm">MZA. H LOTE. 06 A.V. LA PRADERA III ET TACNA - TACNA - CRL. GREG. ALBARRACIN LANCHIPA</p>
+        <p class="text-sm">TELÉFONO</p>
+      </div>
+      <div class="border border-slate-900 w-[350px] justify-center aligns-center flex flex-col" >
+        <div class="flex justify-center">
+          <p class="text-sm">R.U.C.&nbsp</p>
+          <p class="text-sm">10758544821</p>
+        </div>
+        <p class="text-sm text-center">RECIBO POR HONORARIOS ELECTRONICO</p>
+        <div style="text-align: center;">
+          <script type="text/javascript">
+              var A
+              var B
+              A = Math.round(Math.random() * 100)
+              B = Math.round(Math.random() * 10)
+              document.write("Nro: E00" + B + "-" + '&nbsp;' + A + '&nbsp;' + '&nbsp;' + "<br>");
+          </script>
+      </div>
+      
+      </div>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="mt-10">
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Recibí de:&nbsp</p>
+        <P class="uppercase" id="respo"></P>
+      </div>
+
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Identificado con&nbsp</p>
+        <P class="uppercase" id="nrodoc"></P>
+        <p class="font-bold">  ____   </p>
+        <p class="font-bold">  Número&nbsp</p>
+        <p class="uppercase" id="recibide"></p>
+      </div>
+      
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Domiciliado en&nbsp</p>
+        <p class="uppercase" id="domicilio"></p>
+      </div>
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Forma de pago:&nbsp</p>
+        <p class="uppercase" id="formpago"></p>
+        
+      </div>
+
+
+
+
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Suma de&nbsp</p>
+        <p class="uppercase" id="resultado"></p>
+      </div>
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Por concepto&nbsp</p>
+        <p class="uppercase" id="concepto"></p>
+      </div>
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Observación&nbsp</p>
+        <p class="uppercase" id="obs"></p>
+      </div>
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Inciso&nbsp</p>
+        <p class="uppercase" id="inciso"></p>
+      </div>
+
+
+
+      <div class="text-sm flex mb-2">
+        <p class="font-bold">Fecha de emisión&nbsp</p>
+        <p>
+          <script>
+          var fecha= new Date();
+          function generarFactura(){  
+          document.write(fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear()+"</br>"+"</br>"+"</br>");
+        }
+      
+      generarFactura()
+        </script></p>
+      </div>
+    </div>
+
+    <!-- Pie de pagina -->
+
+    <div class="mt-10 text-sm flex flex-col justify-center items-center">
+      <div class="grid grid-cols-2">
+
+        <p class="font-bold">Total por honorarios:&nbsp</p>
+        <p class="uppercase" id="montoRecibido"></p>
+      </div>
+      <div class="grid grid-cols-2">
+        <p class="font-bold mr-2">Retención (8 %) IR:</p>
+        <p class="font-bold" id="retencion">0.00</p>
+      </div>
+      <div class="grid grid-cols-2">
+        <p class="font-bold mr-2">Total Neto Recibido: </p>
+        <p id="montoRecibidoTotal">570.00 SOLES</p>
+        <script>
+          var imprimir;
+          var fecha= new Date();
+          function generarFactura(){  
+          document.write(fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear()+"</br>"+"</br>"+"</br>");
+          document.write('<button onclick="window.print()">Imprimir Factura</button>');
+        }
+      
+      generarFactura()
+        </script>
+      </div>
+    </div>
+  </div>
+</body>
+
+<style>
+  .container {
+    width: 210mm;
+    /* height: 297mm; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+  }
+</style>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Recupera los datos del localStorage
+            const datosJSON = localStorage.getItem("datosFormulario");
+            console.log("LLego aqui")
+            if (datosJSON) {
+              // Convierte los datos JSON a un objeto JavaScript
+              const datos = JSON.parse(datosJSON);
+
+              // Muestra los datos en etiquetas HTML
+              // console.log(datosJSON.recibidode)
+              const respo = document.getElementById("respo");
+              console.log(respo)
+                respo.textContent=datos.nombres;
+                const recibide = document.getElementById("recibide");
+                recibide.textContent=datos.recibidode;
+                const nrodoc = document.getElementById("nrodoc");
+                nrodoc.textContent=datos.nrodoce;
+                const domicilio= document.getElementById("domicilio");
+                domicilio.textContent=datos.domiciliado;
+
+                const formpago= document.getElementById("formpago");
+                formpago.textContent=datos.formaPago;
+
+                const concepto= document.getElementById("concepto");
+                concepto.textContent=datos.conceptot;
+
+                const obs = document.getElementById("obs");
+                obs.textContent=datos.observacion;
+
+                const inciso= document.getElementById("inciso");            
+                inciso.textContent=datos.incisos;
+
+                const monto= document.getElementById("montoRecibido");
+
+                const retencion = document.getElementById("retencion")
+                const montoTotal = document.getElementById("montoRecibidoTotal")
+                console.log(monto)
+                if(parseFloat(datos.montoRecibido)>1500){
+                  console.log("eenerr")
+                  const tmp = (parseFloat(datos.montoRecibido)*0.08).toFixed(2)
+                  monto.textContent=datos.montoRecibido;
+                  retencion.textContent= tmp
+                  const d=(parseFloat(datos.montoRecibido)-tmp)
+                  montoTotal.textContent= d
+                  return
+                }
+                monto.textContent=datos.montoRecibido;
+                console.log(monto)
+                montoTotal.textContent= datos.montoRecibido
+
+            } else {
+                // Si no hay datos en el localStorage, muestra un mensaje de error o redirige a otra página
+                alert("No se encontraron datos en localStorage.");
+            }
+        });
+</script>
+
+</html>

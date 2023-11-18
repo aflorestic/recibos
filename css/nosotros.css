@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(233, 230, 97);
+}
+main {
+    background-image: url("../img/pers.png");
+    background-repeat: no-repeat;
+    background-position: right top ;
+    background-size: contain;
+    background-color: rgb(233, 230, 97);
+   
+    width: 970px;
+    margin: 0 auto;
+    padding: 50px;
+    
+    
+
+}
+.mv li{
+    display: inline-block;
+    text-align: justify;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background: rgb(243, 204, 27);
+}
+.mv h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+
+
+}
+.img{
+background-image:none;
+}
